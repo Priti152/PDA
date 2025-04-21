@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Patient Data Analysis{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h2>Welcome, {{ current_user.username }}</h2>
+    
+    {% if current_user.role == 'admin' %}
+    <div class="dashboard-section">
+        <h3>Admin Dashboard</h3>
+        <div class="dashboard-links">
+            <a href="#" class="dashboard-link">Manage Users</a>
+            <a href="#" class="dashboard-link">View Reports</a>
+            <a href="#" class="dashboard-link">System Settings</a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if current_user.role == 'doctor' %}
+    <div class="dashboard-section">
+        <h3>Doctor Dashboard</h3>
+        <div class="dashboard-links">
+            <a href="#" class="dashboard-link">My Patients</a>
+            <a href="#" class="dashboard-link">Appointments</a>
+            <a href="#" class="dashboard-link">Prescriptions</a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if current_user.role == 'patient' %}
+    <div class="dashboard-section">
+        <h3>Patient Dashboard</h3>
+        <div class="dashboard-links">
+            <a href="#" class="dashboard-link">My Appointments</a>
+            <a href="#" class="dashboard-link">Medical History</a>
+            <a href="#" class="dashboard-link">Prescriptions</a>
+            <a href="#" class="dashboard-link">Bills</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %} 

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Patient Data Analysis{% endblock %}
+
+{% block content %}
+<div class="welcome-section">
+    <h1>Welcome to Patient Data Analysis System</h1>
+    <p>A simple and efficient way to manage patient records and medical data.</p>
+    
+    {% if not current_user.is_authenticated %}
+    <div class="auth-buttons">
+        <a href="{{ url_for('login') }}" class="btn">Login</a>
+        <a href="{{ url_for('register') }}" class="btn">Register</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %} 
